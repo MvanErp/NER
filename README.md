@@ -21,6 +21,6 @@ As well as Wordnet version 3.0 ([http://wordnet.princeton.edu/wordnet/download/]
 The scripts are made to work on the annotated .xml files that were described in Freire et al. 2012, which you can find here: [http://web.ist.utl.pt/~nuno.freire/ner]
 Basically, any other similar xml file will do, but then you need to adjust the createFeatureInstances.pl to work with different data elements. 
 
-The easiest setup is to copy all scripts and files to the directory in which your xml files reside and run run.sh from the command line. 
+The easiest setup is to copy all scripts and files to the directory in which your xml files reside and run run.sh from the command line. After that you can use your favourite machine learning tool (Weka, Mallet) to test the performance of these features. 
 
 Good luck!
