@@ -3,7 +3,6 @@
 use strict ; 
 use Lingua::Wordnet;
 use Lingua::Wordnet::Analysis;
-use Data::Dumper ;
 use Lingua::EN::Tokenizer::Offsets qw/token_offsets get_tokens/;
 use HTML::Entities ;  
 use utf8 ; 
@@ -755,7 +754,7 @@ for(my $x = 3 ; $x < scalar(@array)-3 ; $x++)
 	## Capitalisation Frequency  -0.267383995337804
 	$featurevector = $featurevector.$capitalisedFrequency."\"" ;
 	### Text type
-	$featurevector = $featurevector.'\t"'.$texttype.'"\t' ;
+	$featurevector = $featurevector."\t\"".$texttype."\"\t" ;
 	### NER CLASS
 	$featurevector =~ s/NER.-PER//g ; 
 	$featurevector =~ s/NER.-LOC//g ; 

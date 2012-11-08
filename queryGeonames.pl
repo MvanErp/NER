@@ -2,7 +2,6 @@
 
 use strict ; 
 use Geo::GeoNames;
-use Data::Dumper;
 
 my $geo = new Geo::GeoNames();
 
@@ -23,7 +22,7 @@ while(my $query = <FILE>)
 
 	#print Dumper($result) ; 
 
-#	sleep(5) ; 
+	sleep(3) ; 
 	print $query."\n" ;
     print OUTPUT $query ; 
 	if(lc $result->[0]->{name} eq lc $query) 
@@ -49,6 +48,5 @@ while(my $query = <FILE>)
 		{
 		print OUTPUT "\t0\t".$result->[0]->{geonameId}."\t".$result->[0]->{name} ; 
 		}
-	print OUTPUT "\n" ; 
-	#sleep(5) ; 
+	print OUTPUT "\n" ;  
 	}
