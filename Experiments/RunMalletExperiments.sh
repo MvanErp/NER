@@ -119,4 +119,6 @@ perl ../Scripts/conlleval.pl < $CURRENTDIR/DataRun4ordersForConll.csv > $CURRENT
 
 perl ../Scripts/conlleval.pl < $CURRENTDIR/DataRun4ordersForConll.csv 
 
+cd ..
+
 
