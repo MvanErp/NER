@@ -4,11 +4,11 @@
 # then select only those tokens that are capitalised (to not use up your GeoNames 
 # query limit with terms that are not locations) 
 echo "Gathering stats for geographical features. Querying GeoNames, this may take a while."
-for x in *ner.xml ; do cat $x >> concatenated ; done 
+for x in EuropeanaMetadataAnnotatedNamedEntities/*ner.xml ; do cat $x >> concatenated ; done 
 perl selectTokensForGeoLookup.pl concatenated > TokensForGeoNamesQuery
 
 # query GeoNames
-perl queryGeonames.pl TokensForGeoNamesQuery GeoFeatures.txt 
+perl queryGeonames.pl TokensForGeoNamesQuery ../Data/GeoFeatures.txt 
 
 # Clean up
 rm concatenated 

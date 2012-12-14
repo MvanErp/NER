@@ -15,9 +15,9 @@ cut -f59 -d"," < ../Data/EuropeanaMetadata.csv | sed 's/"//g ' > ../Data/Euopean
 
 cd ../stanford-postagger-full-2012-11-11/
 
-java -mx2g -classpath stanford-postagger.jar edu.stanford.nlp.tagger.maxent.MaxentTagger -model models/english-bidirectional-distsim.tagger -textFile OnlyTokens.txt -outputFormat tsv -tokenize false | grep -v "^$" | tr "\t" " " > ../Data/EuopeanaMetadata_TokensAndPOS.txt 
+java -mx2g -classpath stanford-postagger.jar edu.stanford.nlp.tagger.maxent.MaxentTagger -model models/english-bidirectional-distsim.tagger -textFile ../Data/EuopeanaMetadata_onlyTokens.txt  -outputFormat tsv -tokenize false | grep -v "^$" | tr "\t" " " > ../Data/EuopeanaMetadata_TokensAndPOS.txt 
 
-paste -d" " ../Data/EuopeanaMetadata_TokensAndPOS.txt ../Data/EuropeanaMetadata_onlyNERTags.txt > ../Data/EuropeanaMetadata_POS.csv 
+paste -d" " ../Data/EuopeanaMetadata_TokensAndPOS.txt ../Data/EuopeanaMetadata_onlyNERTags.txt > ../Data/EuropeanaMetadata_POS.csv 
 
 # Don't forget to check if the file contains 12510 lines 
 split -l 1251 ../Data/EuropeanaMetadata_POS.csv
@@ -35,16 +35,16 @@ cat  xaa xab xac xad xae xaf xag xah xaj >> ../Data/TrainingRun09StanfordPOS.csv
 cat  xaa xab xac xad xae xaf xag xah xai >> ../Data/TrainingRun10StanfordPOS.csv
 
 # Create test data 
-cat  xaa >> ../Data/TestRun01StanfordPOS.csv
-cat  xab >> ../Data/TestRun02StanfordPOS.csv
-cat  xac >> ../Data/TestRun03StanfordPOS.csv
-cat  xad >> ../Data/TestRun04StanfordPOS.csv
-cat  xae >> ../Data/TestRun05StanfordPOS.csv
-cat  xaf >> ../Data/TestRun06StanfordPOS.csv
-cat  xag >> ../Data/TestRun07StanfordPOS.csv
-cat  xah >> ../Data/TestRun08StanfordPOS.csv
-cat  xai >> ../Data/TestRun09StanfordPOS.csv
-cat  xaj >> ../Data/TestRun10StanfordPOS.csv
+mv xaa ../Data/TestRun01StanfordPOS.csv
+mv xab ../Data/TestRun02StanfordPOS.csv
+mv xac ../Data/TestRun03StanfordPOS.csv
+mv xad ../Data/TestRun04StanfordPOS.csv
+mv xae ../Data/TestRun05StanfordPOS.csv
+mv xaf ../Data/TestRun06StanfordPOS.csv
+mv xag ../Data/TestRun07StanfordPOS.csv
+mv xah ../Data/TestRun08StanfordPOS.csv
+mv xai ../Data/TestRun09StanfordPOS.csv
+mv xaj ../Data/TestRun10StanfordPOS.csv
 
 ### 
 #  This is where where the NER takes place
@@ -108,7 +108,7 @@ java -mx4g -cp stanford-ner.jar edu.stanford.nlp.ie.crf.CRFClassifier -loadClass
 #  This is where where the Evaluation takes place
 ###
 
-for x in ../Data/Run*_StanfordPOS.csv ; do sed 's/\t/ /g' $x | grep -v "^$" >> ../Data/StanfordPOSSingleFile.csv ; done
+for x in ../Data/Run*_POS.csv ; do sed 's/\t/ /g' $x | grep -v "^$" >> ../Data/StanfordPOSSingleFile.csv ; done
 
 cd ../Scripts
 

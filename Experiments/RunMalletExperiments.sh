@@ -111,12 +111,12 @@ java -mx4g -cp "$CURRENTDIR/mallet-2.0.7/class:$CURRENTDIR/mallet-2.0.7/lib/mall
 for x in $CURRENTDIR/Data/Run*_4orders.csv ; do grep -v "^$" < $x | cut -f1 -d" " | cat >> $CURRENTDIR/Data/Run4ordersOneFile.csv ; done 
 
 # Combine the classifier's predictions with the gold standard predictions 
-paste -d" " $CURRENTDIR/Data/GoldStandard.csv $CURRENTDIR/Data/Run4ordersOneFile.csv > $CURRENTDIR/Data/Run4ordersForConll.csv 
+paste -d" " $CURRENTDIR/Data/GoldStandard.csv $CURRENTDIR/Data/Run4ordersOneFile.csv > $CURRENTDIR/Data/Mallet4thOrderFreireFeaturesResultsForConll.csv
 
 # Run the evaluation script
-perl ../Scripts/conlleval.pl < $CURRENTDIR/Data/Run4ordersForConll.csv > $CURRENTDIR/Data/4OrdersConllsresults.txt
+perl ../Scripts/conlleval.pl < $CURRENTDIR/Data/Mallet4thOrderFreireFeaturesResultsForConll.csv > $CURRENTDIR/Data/Mallet4thOrderFreireFeaturesResults.txt
 
-perl ../Scripts/conlleval.pl < $CURRENTDIR/Data/Run4ordersForConll.csv 
+perl ../Scripts/conlleval.pl < $CURRENTDIR/Data/Mallet4thOrderFreireFeaturesResults.txt 
 
 cd ../Scripts/
 
