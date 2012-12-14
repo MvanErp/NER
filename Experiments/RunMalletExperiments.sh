@@ -8,35 +8,35 @@
 split -l 1251 Data/EuropeanaMetadata.csv 
 
 # Concatenate different parts to create training data 
-cat  xab xac xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /' >> Data/TrainingRun01.csv
-cat  xaa xac xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TrainingRun02.csv
-cat  xaa xab xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TrainingRun03.csv
-cat  xaa xab xac xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TrainingRun04.csv
-cat  xaa xab xac xad xaf xag xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /' >> Data/TrainingRun05.csv
-cat  xaa xab xac xad xae xag xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /' >> Data/TrainingRun06.csv
-cat  xaa xab xac xad xae xaf xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /' >> Data/TrainingRun07.csv
-cat  xaa xab xac xad xae xaf xag xai xaj | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TrainingRun08.csv
-cat  xaa xab xac xad xae xaf xag xah xaj  | sed 's/ //g ; s/"//g ; s/,/ /' >> Data/TrainingRun09.csv
-cat  xaa xab xac xad xae xaf xag xah xai  | sed 's/ //g ; s/"//g ; s/,/ /' >> Data/TrainingRun10.csv
+cat  xab xac xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /g' >> ../Data/TrainingRun01.csv
+cat  xaa xac xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TrainingRun02.csv
+cat  xaa xab xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TrainingRun03.csv
+cat  xaa xab xac xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TrainingRun04.csv
+cat  xaa xab xac xad xaf xag xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /g' >> ../Data/TrainingRun05.csv
+cat  xaa xab xac xad xae xag xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /g' >> ../Data/TrainingRun06.csv
+cat  xaa xab xac xad xae xaf xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /g' >> ../Data/TrainingRun07.csv
+cat  xaa xab xac xad xae xaf xag xai xaj | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TrainingRun08.csv
+cat  xaa xab xac xad xae xaf xag xah xaj  | sed 's/ //g ; s/"//g ; s/,/ /g' >> ../Data/TrainingRun09.csv
+cat  xaa xab xac xad xae xaf xag xah xai  | sed 's/ //g ; s/"//g ; s/,/ /g' >> ../Data/TrainingRun10.csv
 
 # 
-cat  xaa | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TestRun01.csv
-cat  xab | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TestRun02.csv
-cat  xac  | sed 's/ //g ; s/"//g ; s/,/ /' >> Data/TestRun03.csv
-cat  xad | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TestRun04.csv
-cat  xae | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TestRun05.csv
-cat  xaf | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TestRun06.csv
-cat  xag | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TestRun07.csv
-cat  xah | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TestRun08.csv
-cat  xai | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TestRun09.csv
-cat  xaj | sed 's/ //g ; s/"//g ; s/,/ /'  >> Data/TestRun10.csv
+cat  xaa | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TestRun01.csv
+cat  xab | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TestRun02.csv
+cat  xac  | sed 's/ //g ; s/"//g ; s/,/ /g' >> ../Data/TestRun03.csv
+cat  xad | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TestRun04.csv
+cat  xae | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TestRun05.csv
+cat  xaf | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TestRun06.csv
+cat  xag | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TestRun07.csv
+cat  xah | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TestRun08.csv
+cat  xai | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TestRun09.csv
+cat  xaj | sed 's/ //g ; s/"//g ; s/,/ /g'  >> ../Data/TestRun10.csv
 
 if [ -f Data/GoldStandard.csv ];
 then
     rm Data/GoldStandard.csv
 fi
 
-cat xaa xab xac xad xae xaf xag xah xai xaj | cut -f1,59 -d"," | sed 's/"//g' >> Data/GoldStandard.csv
+cat xaa xab xac xad xae xaf xag xah xai xaj | cut -f1,59 -d"," | sed 's/"//g ; s/,/ /g' >> ../Data/GoldStandard.csv
 
 # Clean up
 rm xaa xab xac xad xae xaf xag xah xai xaj
@@ -48,7 +48,7 @@ rm xaa xab xac xad xae xaf xag xah xai xaj
 
 CURRENTDIR=`pwd`
 
-cd mallet-2.0.7.
+cd ../mallet-2.0.7/
 
 ## Run 01 
 java -mx4g -cp "$CURRENTDIR/mallet-2.0.7/class:/$CURRENTDIR/mallet-2.0.7/lib/mallet-deps.jar" cc.mallet.fst.SimpleTagger --orders 4 --train true --model-file $CURRENTDIR/Data/Run01_4orders $CURRENTDIR/Data/TrainingRun01.csv
@@ -102,7 +102,6 @@ java -mx4g -cp "$CURRENTDIR/mallet-2.0.7/class:$CURRENTDIR/mallet-2.0.7/lib/mall
 
 java -mx4g -cp "$CURRENTDIR/mallet-2.0.7/class:$CURRENTDIR/mallet-2.0.7/lib/mallet-deps.jar" cc.mallet.fst.SimpleTagger --include-input true --model-file $CURRENTDIR/Data/Run09_4orders $CURRENTDIR/Data/TestRun09.csv > $CURRENTDIR/Data/Run09_4orders.csv
 
-
 ## Run 10
 java -mx4g -cp "$CURRENTDIR/mallet-2.0.7/class:$CURRENTDIR/mallet-2.0.7/lib/mallet-deps.jar" cc.mallet.fst.SimpleTagger --orders 4 --train true --model-file $CURRENTDIR/Data/Run10_4orders $CURRENTDIR/Data/TrainingRun10.csv
 
@@ -115,10 +114,10 @@ for x in $CURRENTDIR/Data/Run*_4orders.csv ; do grep -v "^$" < $x | cut -f1 -d" 
 paste -d" " $CURRENTDIR/Data/GoldStandard.csv $CURRENTDIR/Data/Run4ordersOneFile.csv > $CURRENTDIR/Data/Run4ordersForConll.csv 
 
 # Run the evaluation script
-perl ../Scripts/conlleval.pl < $CURRENTDIR/DataRun4ordersForConll.csv > $CURRENTDIR/Data/4OrdersConllsresults.txt
+perl ../Scripts/conlleval.pl < $CURRENTDIR/Data/Run4ordersForConll.csv > $CURRENTDIR/Data/4OrdersConllsresults.txt
 
-perl ../Scripts/conlleval.pl < $CURRENTDIR/DataRun4ordersForConll.csv 
+perl ../Scripts/conlleval.pl < $CURRENTDIR/Data/Run4ordersForConll.csv 
 
-cd ..
+cd ../Scripts/
 
 

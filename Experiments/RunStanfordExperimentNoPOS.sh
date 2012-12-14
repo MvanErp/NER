@@ -5,31 +5,31 @@
 # Also make sure you have stanford-ner-2012-05-22 installed in the NER root directory
 
 # Check if the file contains 12510 lines 
-split -l 1251 Data/EuropeanaMetadata.csv 
+split -l 1251 ../Data/EuropeanaMetadata.csv 
 
 # Concatenate different parts to create training data 
-cat  xab xac xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /' | cut -f1,59 -d" " >> ../Data/TrainingRun01StanfordNoPOS.csv
-cat  xaa xac xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /' cut -f1,59 -d" "  >> ../Data/TrainingRun02StanfordNoPOS.csv
-cat  xaa xab xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /' cut -f1,59 -d" "  >> ../Data/TrainingRun03StanfordNoPOS.csv
-cat  xaa xab xac xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /' cut -f1,59 -d" "  >> ../Data/TrainingRun04StanfordNoPOS.csv
-cat  xaa xab xac xad xaf xag xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /' cut -f1,59 -d" " >> ../Data/TrainingRun05StanfordNoPOS.csv
-cat  xaa xab xac xad xae xag xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /' cut -f1,59 -d" " >> ../Data/TrainingRun06StanfordNoPOS.csv
-cat  xaa xab xac xad xae xaf xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /' cut -f1,59 -d" " >> ../Data/TrainingRun07StanfordNoPOS.csv
-cat  xaa xab xac xad xae xaf xag xai xaj | sed 's/ //g ; s/"//g ; s/,/ /'  cut -f1,59 -d" " >> ../Data/TrainingRun08StanfordNoPOS.csv
-cat  xaa xab xac xad xae xaf xag xah xaj  | sed 's/ //g ; s/"//g ; s/,/ /' cut -f1,59 -d" " >> ../Data/TrainingRun09StanfordNoPOS.csv
-cat  xaa xab xac xad xae xaf xag xah xai  | sed 's/ //g ; s/"//g ; s/,/ /' cut -f1,59 -d" " >> ../Data/TrainingRun10StanfordNoPOS.csv
+cat  xab xac xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TrainingRun01StanfordNoPOS.csv
+cat  xaa xac xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" "  >> ../Data/TrainingRun02StanfordNoPOS.csv
+cat  xaa xab xad xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /g'| cut -f1,59 -d" "  >> ../Data/TrainingRun03StanfordNoPOS.csv
+cat  xaa xab xac xae xaf xag xah xai xaj | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" "  >> ../Data/TrainingRun04StanfordNoPOS.csv
+cat  xaa xab xac xad xaf xag xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /g'| cut -f1,59 -d" " >> ../Data/TrainingRun05StanfordNoPOS.csv
+cat  xaa xab xac xad xae xag xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TrainingRun06StanfordNoPOS.csv
+cat  xaa xab xac xad xae xaf xah xai xaj  | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TrainingRun07StanfordNoPOS.csv
+cat  xaa xab xac xad xae xaf xag xai xaj | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TrainingRun08StanfordNoPOS.csv
+cat  xaa xab xac xad xae xaf xag xah xaj  | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TrainingRun09StanfordNoPOS.csv
+cat  xaa xab xac xad xae xaf xag xah xai  | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TrainingRun10StanfordNoPOS.csv
 
 # 
-cat  xaa | sed 's/ //g ; s/"//g ; s/,/ /' >> ../Data/TestRun01StanfordNoPOS.csv
-cat  xab | sed 's/ //g ; s/"//g ; s/,/ /' >> ../Data/TestRun02StanfordNoPOS.csv
-cat  xac | sed 's/ //g ; s/"//g ; s/,/ /' >> ../Data/TestRun03StanfordNoPOS.csv
-cat  xad | sed 's/ //g ; s/"//g ; s/,/ /' >> ../Data/TestRun04StanfordNoPOS.csv
-cat  xae | sed 's/ //g ; s/"//g ; s/,/ /' >> ../Data/TestRun05StanfordNoPOS.csv
-cat  xaf | sed 's/ //g ; s/"//g ; s/,/ /' >> ../Data/TestRun06StanfordNoPOS.csv
-cat  xag | sed 's/ //g ; s/"//g ; s/,/ /' >> ../Data/TestRun07StanfordNoPOS.csv
-cat  xah | sed 's/ //g ; s/"//g ; s/,/ /' >> ../Data/TestRun08StanfordNoPOS.csv
-cat  xai | sed 's/ //g ; s/"//g ; s/,/ /' >> ../Data/TestRun09StanfordNoPOS.csv
-cat  xaj | sed 's/ //g ; s/"//g ; s/,/ /' >> ../Data/TestRun10StanfordNoPOS.csv
+cat  xaa | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TestRun01StanfordNoPOS.csv
+cat  xab | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TestRun02StanfordNoPOS.csv
+cat  xac | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TestRun03StanfordNoPOS.csv
+cat  xad | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TestRun04StanfordNoPOS.csv
+cat  xae | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TestRun05StanfordNoPOS.csv
+cat  xaf | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TestRun06StanfordNoPOS.csv
+cat  xag | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TestRun07StanfordNoPOS.csv
+cat  xah | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TestRun08StanfordNoPOS.csv
+cat  xai | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TestRun09StanfordNoPOS.csv
+cat  xaj | sed 's/ //g ; s/"//g ; s/,/ /g' | cut -f1,59 -d" " >> ../Data/TestRun10StanfordNoPOS.csv
 
 ### 
 #  This is where the NER takes place  
@@ -94,7 +94,7 @@ java -mx4g -cp stanford-ner.jar edu.stanford.nlp.ie.crf.CRFClassifier -loadClass
 
 cd ../Scripts
 
-for x in ../Data/Run*_StanfordNoPOS.csv ; do sed 's/\t/ /g' $x | grep -v "^$" >> ../Data/StanfordNoPOSSingleFile.csv ; done
+for x in ../Data/Run*_StanfordNoPOS.csv ; do sed 's/\t/ /g' < $x | grep -v "^$" >> ../Data/StanfordNoPOSSingleFile.csv ; done
 
 perl conlleval.pl < ../Data/StanfordNoPOSSingleFile.csv > ResultsStanfordNoPOS.txt
 
