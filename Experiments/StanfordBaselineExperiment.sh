@@ -2,7 +2,7 @@
 
 # Make sure you have generated the EuropeanaMetadata.csv file in the Data directory by running CreateFeatureVectors.sh in Scripts.
 
-# Also make sure you have stanford-ner-2012-05-22 and stanford-postagger-full-2012-11-11 installed in the NER directory as well as the conll.distsim.iob2.crf.ser.gz model installed in the stanford-ner-2012-05-22/classifiers folder. This model is available from http://nlp.stanford.edu/software/conll.closed.iob2.crf.ser.gz
+# Also make sure you have stanford-ner-2012-05-22 and stanford-postagger-full-2012-11-11 installed in the NER directory as well as the conll.distsim.iob2.crf.ser.gz model installed in the stanford-ner-2012-05-22/classifiers folder. This model is available from http://nlp.stanford.edu/software/conll.distsim.iob2.crf.ser.gz
 
 ### 
 #  This is where the POS Tagging takes place
